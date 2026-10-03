@@ -1,0 +1,72 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "description": "Default freqtrade renovate config",
+  "extends": [
+    "config:recommended",
+    ":maintainLockFilesMonthly",
+    ":semanticCommitTypeAll(chore)",
+    "schedule:monthly"
+  ],
+  "meteor": {
+    "enabled": false
+  },
+  "rangeStrategy": "bump",
+  "minimumReleaseAge": "7 days",
+  "npm": {
+    "commitMessageTopic": "{{prettyDepType}} {{depName}}"
+  },
+  "packageRules": [
+    {
+      "description": "Group minor and patch updates into one PR per package manager.",
+      "matchPackageNames": ["*"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "{{manager}} non-major dependencies",
+      "groupSlug": "{{manager}}-minor-patch"
+    },
+    {
+      "description": "Split npm devDependencies into their own non-major group.",
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "npm non-major devDependencies",
+      "groupSlug": "npm-dev-minor-patch"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchDepTypes": ["engines"],
+      "matchDepNames": ["node"],
+      "enabled": false
+    },
+    {
+      "description": "Keep major-only runtime versions in workflow inputs (e.g. node@24) instead of pinning them to exact versions.",
+      "matchManagers": ["github-actions"],
+      "matchDepTypes": ["uses-with"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "description": "Keep major-only node versions in version files (e.g. .nvmrc: 22) instead of pinning them to exact versions.",
+      "matchManagers": ["nvm", "nodenv"],
+      "rangeStrategy": "replace"
+    },
+    {
+      "description": "Lock file maintenance has no release timestamp, so Renovate's age check would stay pending forever. pnpm's minimumReleaseAge enforces it instead.",
+      "matchUpdateTypes": ["lockFileMaintenance"],
+      "minimumReleaseAge": null
+    },
+    {
+      "description": "Group Python non-major updates across managers, so pyproject.toml and requirements files are bumped in the same PR.",
+      "matchDatasources": ["pypi"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "python non-major dependencies",
+      "groupSlug": "python-minor-patch"
+    },
+    {
+      "description": "Keep pyproject.toml ranges (e.g. >=2.0) untouched while the new version is in range - only the lock file gets updated.",
+      "matchManagers": ["pep621", "poetry"],
+      "rangeStrategy": "update-lockfile"
+    }
+  ],
+  "postUpdateOptions": [
+    "pnpmDedupe"
+  ]
+}

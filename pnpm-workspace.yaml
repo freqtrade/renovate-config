@@ -1,0 +1,13 @@
+# 7 days
+minimumReleaseAge: 10080
+blockExoticSubdeps: true
+trustPolicy: no-downgrade
+trustPolicyExclude:
+  - "@yarnpkg/libzip"
+  - "semver@6.3.1"
+preferFrozenLockfile: true
+allowBuilds:
+  core-js-pure: true
+  dtrace-provider: true
+  protobufjs: true
+  re2: true

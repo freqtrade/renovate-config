@@ -1,0 +1,34 @@
+{
+  "name": "@freqtrade/renovate-config",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Xmatt preset for Renovate",
+  "license": "MIT",
+  "homepage": "https://github.com/freqtrade/renovate-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freqtrade/renovate-config.git"
+  },
+  "bugs": {
+    "url": "https://github.com/freqtrade/renovate-config/issues"
+  },
+  "scripts": {
+    "validate": "renovate-config-validator default.json org-inherited-config.json .github/renovate.json",
+    "test": "pnpm run validate"
+  },
+  "devDependencies": {
+    "renovate": "^44.115.10"
+  },
+  "devEngines": {
+    "runtime": {
+      "name": "node",
+      "version": "^24.15.0",
+      "onFail": "download"
+    },
+    "packageManager": {
+      "name": "pnpm",
+      "version": "12.3.4",
+      "onFail": "download"
+    }
+  }
+}
