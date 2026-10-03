@@ -1,4 +1,5 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-inherited-schema.json",
+  "description": "Freqtrade org-wide inherited Renovate config",
   "onboardingConfigFileName": ".github/renovate.json"
 }
