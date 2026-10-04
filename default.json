@@ -77,11 +77,12 @@
       "groupSlug": "ta-lib"
     },
     {
-      "description": "Keep ccxt updates in their own PR, bumping the Python and JS packages together.",
+      "description": "Keep ccxt updates in their own PR, bumping the Python and JS packages together. ccxt releases frequently, so use a short minimum release age.",
       "matchDatasources": ["pypi", "npm"],
       "matchPackageNames": ["ccxt"],
       "groupName": "ccxt",
-      "groupSlug": "ccxt"
+      "groupSlug": "ccxt",
+      "minimumReleaseAge": "2 hours"
     },
     {
       "description": "Keep pyproject.toml ranges (e.g. >=2.0) untouched while the new version is in range - only the lock file gets updated.",
