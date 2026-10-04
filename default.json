@@ -12,6 +12,7 @@
   },
   "rangeStrategy": "bump",
   "minimumReleaseAge": "7 days",
+  "prHourlyLimit": 0,
   "npm": {
     "commitMessageTopic": "{{prettyDepType}} {{depName}}"
   },
@@ -59,6 +60,21 @@
       "matchUpdateTypes": ["minor", "patch"],
       "groupName": "python non-major dependencies",
       "groupSlug": "python-minor-patch"
+    },
+    {
+      "description": "Split Python dev requirements into their own non-major group.",
+      "matchDatasources": ["pypi"],
+      "matchFileNames": ["**/requirements-dev.txt"],
+      "matchUpdateTypes": ["minor", "patch"],
+      "groupName": "python non-major dev dependencies",
+      "groupSlug": "python-dev-minor-patch"
+    },
+    {
+      "description": "Keep ta-lib updates in their own PR, separate from other Python dependencies.",
+      "matchDatasources": ["pypi"],
+      "matchPackageNames": ["/^ta[-_.]?lib$/i"],
+      "groupName": "ta-lib",
+      "groupSlug": "ta-lib"
     },
     {
       "description": "Keep pyproject.toml ranges (e.g. >=2.0) untouched while the new version is in range - only the lock file gets updated.",
