@@ -1,4 +1,6 @@
 {
   "$schema": "https://docs.renovatebot.com/renovate-inherited-schema.json",
-  "onboardingConfigFileName": ".github/renovate.json"
+  "onboardingConfigFileName": ".github/renovate.json",
+  "semanticCommits": "enabled",
+  "semanticCommitType": "chore"
 }
