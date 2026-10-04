@@ -77,6 +77,13 @@
       "groupSlug": "ta-lib"
     },
     {
+      "description": "Keep ccxt updates in their own PR, bumping the Python and JS packages together.",
+      "matchDatasources": ["pypi", "npm"],
+      "matchPackageNames": ["ccxt"],
+      "groupName": "ccxt",
+      "groupSlug": "ccxt"
+    },
+    {
       "description": "Keep pyproject.toml ranges (e.g. >=2.0) untouched while the new version is in range - only the lock file gets updated.",
       "matchManagers": ["pep621", "poetry"],
       "rangeStrategy": "update-lockfile"
