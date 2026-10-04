@@ -10,6 +10,7 @@
   "meteor": {
     "enabled": false
   },
+  "labels": ["Dependencies"],
   "rangeStrategy": "bump",
   "minimumReleaseAge": "7 days",
   "prHourlyLimit": 0,
@@ -17,6 +18,26 @@
     "commitMessageTopic": "{{prettyDepType}} {{depName}}"
   },
   "packageRules": [
+    {
+      "description": "Label Python updates.",
+      "matchCategories": ["python"],
+      "addLabels": ["Python"]
+    },
+    {
+      "description": "Label JavaScript updates.",
+      "matchCategories": ["js"],
+      "addLabels": ["javascript"]
+    },
+    {
+      "description": "Label GitHub Actions updates.",
+      "matchManagers": ["github-actions"],
+      "addLabels": ["github_actions"]
+    },
+    {
+      "description": "Label Docker updates.",
+      "matchCategories": ["docker"],
+      "addLabels": ["docker"]
+    },
     {
       "description": "Group minor and patch updates into one PR per package manager.",
       "matchPackageNames": ["*"],
