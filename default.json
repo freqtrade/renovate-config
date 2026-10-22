@@ -39,6 +39,13 @@
       "addLabels": ["docker"]
     },
     {
+      "description": "constraints.python is the minimum supported Python version - don't bump it to the latest Python release.",
+      "matchManagers": ["renovate-config"],
+      "matchDepTypes": ["tool-constraint"],
+      "matchDepNames": ["python"],
+      "enabled": false
+    },
+    {
       "description": "Group minor and patch updates into one PR per package manager.",
       "matchPackageNames": ["*"],
       "matchUpdateTypes": ["minor", "patch"],
