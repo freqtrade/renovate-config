@@ -2,7 +2,7 @@
   "name": "@freqtrade/renovate-config",
   "private": true,
   "version": "0.1.0",
-  "description": "Xmatt preset for Renovate",
+  "description": "Freqtrade preset for Renovate",
   "license": "MIT",
   "homepage": "https://github.com/freqtrade/renovate-config",
   "repository": {
