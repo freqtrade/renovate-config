@@ -53,6 +53,11 @@
       "groupSlug": "{{manager}}-minor-patch"
     },
     {
+      "description": "Separate Python patch from minor updates",
+      "matchDepNames": ["python"],
+      "separateMinorPatch": true
+    },
+    {
       "description": "Python minor releases (e.g. 3.13 -> 3.14) are adopted manually - only bump patch versions (Docker images, workflow inputs, ...).",
       "matchDepNames": ["python"],
       "matchUpdateTypes": ["minor", "major"],
